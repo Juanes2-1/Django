@@ -1,0 +1,26 @@
+{% extends 'todo/layout.html' %}
+{% block content %}
+    <div class="container">
+      <table class="table table-bordered table-info">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Descripción</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for nota in notas %}
+          <tr>
+            <td>{{ nota.id }}</td>
+            <td>{{ nota }}</td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="{% url 'borrar' nota.id %}">Borrar</a>
+                <a class="btn btn-warning btn-sm" href="{% url 'modificar' nota.id %}">Modificar</a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}
